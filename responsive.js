@@ -72,7 +72,7 @@ window.Responsive = {
 
 	setStyles: function(last)
 	{
-		$('.Responsive').each(function(){
+		$('.responsive').each(function(){
 			$(this).removeClass('b'+window.Responsive.curBClass);
 			$(this).addClass('b'+window.Responsive.getCurBreakpoint());
 		});
