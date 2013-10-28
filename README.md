@@ -1,4 +1,5 @@
 responsive
 ==========
 
-simple js plugin for creating responsive front-end
+Simple js plugin for creating responsive front-end.
+Dependence: JQuery.
