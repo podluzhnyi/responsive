@@ -1,4 +1,5 @@
-window.responsive = {
+/*! Responsive v0.1 | (c) 2013 Evgenyi Podluzhnyi */
+window.Responsive = {
 
 	curSize: null,
 	curBClass: null,
@@ -21,14 +22,14 @@ window.responsive = {
 		this._callCallback(this.curBClass);
 
 		$(window).on('resize',function(){
-			for ( var i in window.responsive.settings.breakpoints )
+			for ( var i in window.Responsive.settings.breakpoints )
 			{
-				if ((window.responsive.curSize > window.responsive.settings.breakpoints[i] && window.responsive.settings.breakpoints[i] > $(window).width()) ||
-					(window.responsive.curSize < window.responsive.settings.breakpoints[i] && window.responsive.settings.breakpoints[i] < $(window).width()))
+				if ((window.Responsive.curSize > window.Responsive.settings.breakpoints[i] && window.Responsive.settings.breakpoints[i] > $(window).width()) ||
+					(window.Responsive.curSize < window.Responsive.settings.breakpoints[i] && window.Responsive.settings.breakpoints[i] < $(window).width()))
 					{
-						window.responsive.curSize = $(window).width();
-						window.responsive.setStyles();
-						window.responsive._callCallback(responsive.curBClass);
+						window.Responsive.curSize = $(window).width();
+						window.Responsive.setStyles();
+						window.Responsive._callCallback(Responsive.curBClass);
 					}
 			}
 		});
@@ -71,10 +72,10 @@ window.responsive = {
 
 	setStyles: function(last)
 	{
-		$('.responsive').each(function(){
-			$(this).removeClass('b'+window.responsive.curBClass);
-			$(this).addClass('b'+window.responsive.getCurBreakpoint());
+		$('.Responsive').each(function(){
+			$(this).removeClass('b'+window.Responsive.curBClass);
+			$(this).addClass('b'+window.Responsive.getCurBreakpoint());
 		});
-		window.responsive.curBClass = window.responsive.getCurBreakpoint();
+		window.Responsive.curBClass = window.Responsive.getCurBreakpoint();
 	}
 }
