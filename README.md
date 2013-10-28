@@ -19,7 +19,9 @@ Initiate the plugin with the necessary parameters:  Responsive.init();
 
 Step 3:
 ----
-Add class "resposive" to each elements which need to change style when breakpoint crossed
+Add class "resposive" to each elements which need to change style when breakpoint crossed, like:
+
+\<p class="resposive">My responsive text\</p>
 
 Step 4:
 ----
