@@ -64,7 +64,7 @@ window.Responsive = {
 
 	getCurBreakpoint: function()
 	{
-		var curBreakpoint = 0;
+		var curBreakpoint = this.settings.breakpoints[0];
 		for ( var i in this.settings.breakpoints )
 			if ( this.curSize > this.settings.breakpoints[i] ) curBreakpoint = this.settings.breakpoints[i];
 		return curBreakpoint;
