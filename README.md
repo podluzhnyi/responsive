@@ -57,7 +57,7 @@ Responsive.init( { breakpoints:[320,1024] } );
 
 callbacks: {},
 -----
-object contains callback methods on cross some breakpoint.
+object contains callback methods which will be called on cross some breakpoint.
 
 usage:
 <pre>
@@ -96,7 +96,7 @@ Responsive.init({
 
 callback: function(){}
 -----
-method which will fired on cross any breakpoint.
+method which will be called on cross any breakpoint.
 
 usage:
 <pre>
