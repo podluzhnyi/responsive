@@ -21,7 +21,7 @@ Step 2:
 ----
 Initiate the plugin with the necessary parameters
 <pre>
-Responsive.init({options});
+Responsive.init({parameters});
 </pre>
 
 Step 3:
