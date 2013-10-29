@@ -94,7 +94,7 @@ Responsive.init({
 
 
 
-callback: function(){}
+callback: function(){},
 -----
 method which will be called on meet any breakpoint.
 
