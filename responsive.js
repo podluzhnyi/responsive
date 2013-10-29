@@ -1,4 +1,4 @@
-/*! Responsive v0.1 | (c) 2013 Evgenyi Podluzhnyi */
+/*! Responsive v0.2 | (c) 2013 Evgenyi Podluzhnyi */
 window.Responsive = {
 
 	curSize: null,
@@ -17,22 +17,23 @@ window.Responsive = {
 	init: function(settings)
 	{
 		this.settings = this._mergeObjects(this.defaultSettings,settings);
-		this.curSize = $(window).width();
+		this.curSize = this._getWindowWidth();
 		this.setStyles();
 		this._callCallback(this.curBClass);
 
-		$(window).on('resize',function(){
+		window.onresize = function(event) {
+			var Resp = window.Responsive;
 			for ( var i in window.Responsive.settings.breakpoints )
 			{
-				if ((window.Responsive.curSize > window.Responsive.settings.breakpoints[i] && window.Responsive.settings.breakpoints[i] > $(window).width()) ||
-					(window.Responsive.curSize < window.Responsive.settings.breakpoints[i] && window.Responsive.settings.breakpoints[i] < $(window).width()))
+				if ((Resp.curSize > Resp.settings.breakpoints[i] && Resp.settings.breakpoints[i] > Resp._getWindowWidth()) ||
+					(Resp.curSize < Resp.settings.breakpoints[i] && Resp.settings.breakpoints[i] < Resp._getWindowWidth()))
 					{
-						window.Responsive.curSize = $(window).width();
-						window.Responsive.setStyles();
-						window.Responsive._callCallback(Responsive.curBClass);
+						Resp.curSize = Resp._getWindowWidth();
+						Resp.setStyles();
+						Resp._callCallback(Resp.curBClass);
 					}
 			}
-		});
+		}
 	},
 
 	_callCallback: function(callback)
@@ -62,6 +63,15 @@ window.Responsive = {
 		return obj;
 	},
 
+	_getWindowWidth: function()
+	{
+		var w = window,
+		    d = document,
+		    e = d.documentElement,
+		    g = d.getElementsByTagName('body')[0];
+		    return w.innerWidth || e.clientWidth || g.clientWidth;
+	},
+
 	getCurBreakpoint: function()
 	{
 		var curBreakpoint = this.settings.breakpoints[0];
@@ -70,12 +80,31 @@ window.Responsive = {
 		return curBreakpoint;
 	},
 
+	_removeClass: function(element,className)
+	{
+		var classes = element.className.split(' ');
+		var newClasses = [];
+		for ( var i in classes )
+			if ( classes[i] != className ) newClasses.push(classes[i]);
+		element.className = newClasses.join(' ');
+	},
+
+	_isNumeric: function(num)
+	{
+		return num >=0 || num < 0;
+	},
+
 	setStyles: function(last)
 	{
-		$('.responsive').each(function(){
-			$(this).removeClass('b'+window.Responsive.curBClass);
-			$(this).addClass('b'+window.Responsive.getCurBreakpoint());
-		});
+		var respElements = document.getElementsByClassName('responsive');
+		for ( var i in respElements )
+		{
+			if ( this._isNumeric(i) )
+			{
+				this._removeClass(respElements[i],'b'+window.Responsive.curBClass);
+            	respElements[i].className = respElements[i].className + ' b' + window.Responsive.getCurBreakpoint();
+			}
+		}
 		window.Responsive.curBClass = window.Responsive.getCurBreakpoint();
 	}
 }
