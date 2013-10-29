@@ -26,7 +26,7 @@ Responsive.init({parameters});
 
 Step 3:
 ----
-Add class "resposive" to each elements which need to change style when breakpoint crossed, like:
+Add class "resposive" to each element which need to change style when breakpoint crossed, like:
 <pre>
 &lt;p class="slogan resposive"&gt;My responsive text&lt;/p&gt;
 </pre>
