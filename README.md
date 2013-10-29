@@ -10,7 +10,7 @@ Usages:
 
 Step 1:
 ----
-Add JQuery and Resposive plugin to page
+Add JQuery and Resposive plugin to the page
 <pre>
 &lt;script type="text/javascript" src="{path_to_jquery}/jquery-2.0.3.min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="{path_to_responsive}/responsive.min.js"&gt;&lt;/script&gt;
