@@ -47,7 +47,7 @@ Settings:
 
 breakpoints: [],
 -----
-array of breakpoints whitch you will use. By default it is [320,768,1024,1600]
+array of breakpoints whitch you will use. Default is [320,768,1024,1600]
 
 usage:
 <pre>
