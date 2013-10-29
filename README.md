@@ -26,7 +26,7 @@ Responsive.init({parameters});
 
 Step 3:
 ----
-Add class "resposive" to each element which needs to change style when breakpoint crossed, like:
+Add class "resposive" to each element which needs to change style when meet breakpoint, like:
 <pre>
 &lt;p class="slogan resposive"&gt;My responsive text&lt;/p&gt;
 </pre>
@@ -57,7 +57,7 @@ Responsive.init( { breakpoints:[320,1024] } );
 
 callbacks: {},
 -----
-object contains callback methods which will be called on cross some breakpoint.
+object contains callback methods which will be called on meet some breakpoint.
 
 usage:
 <pre>
@@ -96,7 +96,7 @@ Responsive.init({
 
 callback: function(){}
 -----
-method which will be called on cross any breakpoint.
+method which will be called on meet any breakpoint.
 
 usage:
 <pre>
