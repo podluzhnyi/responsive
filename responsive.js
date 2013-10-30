@@ -80,15 +80,6 @@ window.Responsive = {
 		return curBreakpoint;
 	},
 
-	_removeClass: function(element,className)
-	{
-		var classes = element.className.split(' ');
-		var newClasses = [];
-		for ( var i in classes )
-			if ( classes[i] != className ) newClasses.push(classes[i]);
-		element.className = newClasses.join(' ');
-	},
-
 	_isNumeric: function(num)
 	{
 		return num >=0 || num < 0;
@@ -101,8 +92,8 @@ window.Responsive = {
 		{
 			if ( this._isNumeric(i) )
 			{
-				this._removeClass(respElements[i],'b'+window.Responsive.curBClass);
-            	respElements[i].className = respElements[i].className + ' b' + window.Responsive.getCurBreakpoint();
+				respElements[i].classList.remove('b'+window.Responsive.curBClass);
+				respElements[i].classList.add('b' + window.Responsive.getCurBreakpoint());
 			}
 		}
 		window.Responsive.curBClass = window.Responsive.getCurBreakpoint();
