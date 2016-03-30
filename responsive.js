@@ -10,8 +10,8 @@ window.Responsive = {
 			320: function(){return true;},
 			768: function(){return true;},
 			1024: function(){return true;},
-			1600: function(){return true;},
-		},
+			1600: function(){return true;}
+		}
 	},
 
 	init: function(settings)
@@ -65,18 +65,14 @@ window.Responsive = {
 
 	_getWindowWidth: function()
 	{
-		var w = window,
-		    d = document,
-		    e = d.documentElement,
-		    g = d.getElementsByTagName('body')[0];
-		    return w.innerWidth || e.clientWidth || g.clientWidth;
+        return window.screen.availWidth;
 	},
 
 	getCurBreakpoint: function()
 	{
 		var curBreakpoint = this.settings.breakpoints[0];
 		for ( var i in this.settings.breakpoints )
-			if ( this.curSize > this.settings.breakpoints[i] ) curBreakpoint = this.settings.breakpoints[i];
+			if ( this.curSize >= this.settings.breakpoints[i] ) curBreakpoint = this.settings.breakpoints[i];
 		return curBreakpoint;
 	},
 
